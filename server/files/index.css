@@ -7,13 +7,15 @@ body {
 }
 
 /* Header */
-header {
+header .test {
   background-color: #1A4645;
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+
 
 .logo img {
   width: 150px;
