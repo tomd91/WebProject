@@ -19,7 +19,8 @@ function login(event) {
       if (xhr.status === 200) {
         // Erfolgreiche Anmeldung
         document.getElementById('message').textContent = 'Anmeldung erfolgreich.';
-        window.location.href = '/search.html';
+        // Verlinkte Seite 
+        window.location.href = '/our-animals.html';
       } else {
         // Anmeldung fehlgeschlagen
         document.getElementById('message').textContent = 'Anmeldung fehlgeschlagen.';
