@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies!</title>
+    <link rel="stylesheet" href="login.css" />
+    <script src="login.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>LOGIN</h1>
+    </header>
+
+    <main>
+      <h1>Login</h1>
+      <form id="loginForm" onsubmit="login(event)">
+        <label for="username">Benutzername:</label>
+        <input type="text" id="username" required><br>
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" required><br>
+        <button type="submit">Anmelden</button>
+      </form>
+      
+      <h1>Neuen Benutzer erstellen</h1>
+      <form id="signupForm" onsubmit="createUser(event)">
+        <label for="newUsername">Benutzername:</label>
+        <input type="text" id="newUsername" required><br>
+        <label for="newPassword">Passwort:</label>
+        <input type="password" id="newPassword" required><br>
+        <label for="newName">Name:</label>
+        <input type="text" id="newName" required><br>
+        <button type="submit">Benutzer erstellen</button>
+      </form>
+      
+      <p id="message"></p>
+    <footer>
+      <ul>
+        <li>&copy; Movies!</li>
+        <li>&#8213;</li>
+        <li>Written by <a href="mailto:jane.doe@example.com">Jane Doe</a></li>
+        <li>&#8213;</li>
+        <li>
+          Visit us at
+          <a href="https://www.fh-campuswien.ac.at/" target="_blank">UAS Campus Vienna</a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>
