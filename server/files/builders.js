@@ -22,6 +22,21 @@ export class ElementBuilder {
     return this;
   }
 
+  href(link) {
+    this.element.href = link;
+    return this;
+  }
+
+  src(source) {
+    this.element.src = source;
+    return this;
+  }
+
+  alt(alternativ) {
+    this.element.alt = alternativ;
+    return this;
+  }
+
   with(name, value) {
     this.element.setAttribute(name, value);
     return this;
