@@ -1,4 +1,3 @@
-
 function login(event) {
   event.preventDefault(); // Verhindert das automatische Absenden des Formulars
 
