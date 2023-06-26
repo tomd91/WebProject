@@ -1,0 +1,49 @@
+header {
+    background-color: #1A4645;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Styling for logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+
+  .logo img {
+    width: 300px; 
+  }
+  
+  /* Styling for navigation bar */
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin: 0 30px;
+  }
+  
+  nav ul li a {
+    font-family: 'Montserrat Bold', sans-serif;
+    font-size: large;
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Styling for user icon */
+  .user-profile {
+    margin-left: auto;
+  }
+
+  .user-profile img {
+    width: 30px; 
+  }
+  
