@@ -1,0 +1,164 @@
+const express = require("express");
+const path = require("path");
+const http = require("http");
+const bodyParser = require("body-parser");
+const movieModel = require("./movie-model.js");
+
+const app = express();
+
+// Parse urlencoded bodies
+app.use(bodyParser.json());
+
+// Serve static content in directory 'files'
+app.use(express.static(path.join(__dirname, "files")));
+
+app.get("/movies", function (req, res) {
+  let movies = Object.values(movieModel);
+  const queriedGenre = req.query.genre;
+  if (queriedGenre) {
+    movies = movies.filter((movie) => movie.Genres.indexOf(queriedGenre) >= 0);
+  }
+  res.send(movies);
+});
+
+// Configure a 'get' endpoint for a specific movie
+app.get("/movies/:imdbID", function (req, res) {
+  const id = req.params.imdbID;
+  const exists = id in movieModel;
+
+  if (exists) {
+    res.send(movieModel[id]);
+  } else {
+    res.sendStatus(404);
+  }
+});
+
+app.put("/movies/:imdbID", function (req, res) {
+  const id = req.params.imdbID;
+  const exists = id in movieModel;
+
+  movieModel[req.params.imdbID] = req.body;
+
+  if (!exists) {
+    res.status(201);
+    res.send(req.body);
+  } else {
+    res.sendStatus(200);
+  }
+});
+
+app.get("/genres", function (req, res) {
+  const genres = [
+    ...new Set(Object.values(movieModel).flatMap((movie) => movie.Genres)),
+  ];
+  genres.sort();
+  res.send(genres);
+});
+
+/* Task 1.1. Add the GET /search endpoint: Query omdbapi.com and return
+   a list of the results you obtain. Only include the properties 
+   mentioned in the README when sending back the results to the client */
+
+ app.get("/search", function (req,res) {
+  if (!req.query.query) {
+    res.sendStatus(400);
+    return;
+  }
+
+  const query = req.query.query;
+  const url = "http://www.omdbapi.com/?s=" + query + "&apikey=d4ec07cd";
+  
+
+  http.get(url, response => {
+    let data = "";
+
+    response.on("data", (chunk) => {
+      data += chunk;
+    });
+    
+    response.on("end", () => {
+      const movies = JSON.parse(data).Search.map((movie) => ({
+        Title: movie.Title,
+        imdbID: movie.imdbID,
+        Year: Number(movie.Year)
+      }));
+
+      if(movies.length === 0) {
+        res.send([]);
+        return;
+      }
+
+      res.status(200).send(movies);
+    });
+  });
+});
+
+/* Task 2.2 Add a POST /movies endpoint that receives an array of imdbIDs that the
+   user selected to be added to the movie collection. Search them on omdbapi.com,
+   convert the data to the format we use since exercise 1 and add the data to the
+   movie collection. */
+
+   app.post("/movies", function (req, res) {
+    if(!req.body) {
+      res.sendStatus(400);
+      return;
+    }
+    
+    const imdbIDs=req.body;
+    let numberOfResponses = 0;
+
+    imdbIDs.forEach(imdbID => {
+      http.get("http://www.omdbapi.com/?i=" + imdbID + "&apikey=d4ec07cd", response => {
+      let data = "";
+
+      response.on("data", (chunk) => {
+        data += chunk;
+      });
+      
+      response.on("end", () => {
+        const movie = JSON.parse(data);
+        movieModel[movie.imdbID] = {
+          imdbID: movie.imdbID,
+          Title: movie.Title,
+          Released: new Date(movie.Released).toISOString().slice(0, 10),
+          Runtime: movie.Runtime !== "N/A" ? parseInt(movie.Runtime) : null,
+          Genres: movie.Genre.split(", "),
+          Directors: movie.Director.split(", "),
+          Actors: movie.Actors.split(", "),
+          Writers: movie.Writer.split(", "),
+          Plot: movie.Plot,
+          Poster: movie.Poster,
+          Metascore: movie.Metascore !== "N/A" ? parseInt(movie.Metascore) : null,
+          imdbRating: parseFloat(movie.imdbRating)
+        };
+
+        numberOfResponses++;
+        if(numberOfResponses===imdbIDs.length) {
+          res.sendStatus(200);
+        }
+      });
+    });
+  });
+});  
+
+
+/* Task 3.2. Add the DELETE /movies/:imdbID endpoint which removes the movie
+   with the given imdbID from the collection. */
+
+
+  app.delete("/movies/:imdbID", function (req, res){
+
+    const imdbID=req.params.imdbID;
+
+    if(imdbID in movieModel){
+      delete movieModel[imdbID];
+      res.sendStatus(200);
+    }else{
+      res.sendStatus(404);
+    }
+  });
+   
+
+app.listen(3000);
+
+console.log("Server now listening on http://localhost:3000/");
