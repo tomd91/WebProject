@@ -3,37 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movies!</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="footer.css" />
     <script type="module" src="index.js"></script>
   </head>
 
   <body>
-    <header>
-      <h1>Movies!</h1>
-    </header>
+  <!-- Include the header -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/Pawship_nobackground.png" alt="Logo">
+      </a>
+    </div>
     <nav>
-      <h2>Genres</h2>
-      <ul id="search"></ul>
-      <h2>Manage</h2>
       <ul>
-        <li>
-          <button onclick="location.href='search.html'">Add movies</button>
-        </li>
+        <li><a href="pet-quiz.html">Pet Quiz</a></li>
+        <li><a href="our-animals.html">Our Animals</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <main></main>
-    <footer>
-      <ul>
-        <li>&copy; Movies!</li>
-        <li>&#8213;</li>
-        <li>Written by <a href="mailto:jane.doe@example.com">Jane Doe</a></li>
-        <li>&#8213;</li>
-        <li>
-          Visit us at
-          <a href="https://www.fh-campuswien.ac.at/" target="_blank">UAS Campus Vienna</a>
-        </li>
-      </ul>
-    </footer>
-  </body>
+    <div class="user-profile">
+      <a href="user-profile.html">
+        <img src="images/icons8-user-64.png" alt="User Profile">
+      </a>
+    </div>
+    </header>
+
+  <div class="green-section">
+    <h1>Find Your Dream Pet</h1>
+    <h2>Discover your perfect furry companion with our interactive quiz that matches you with your ideal pet!</h2>
+    <img src="images/index_graphic.png" alt="Quiz Illustration">
+    <a href="pet-quiz.html">
+     <button>TAKE THE QUIZ</button>
+    </a>
+  </div>
+
+  <div class="white-section">
+    <div class="white-block">
+      <h3>Cat Facts</h3>
+      <p id="cat-facts-text">Here will be cat facts.</p>
+    </div>
+    <div class="white-block">
+      <h3>Unlock your Pawtential</h3>
+      <p>Pawship is an extraordinary web service that combines the power of a personality quiz with expert matching algorithms to help you find your perfect pet, ensuring a lifelong bond based on compatibility and shared traits.</p>
+    </div>
+  </div>
+
+
+   <!-- PLACEHOLDER for JS -->
+  <script src="script.js"></script>
+
+      <!-- Include the footer -->
+      <footer>
+        <div class="footer-buttons">
+          <a href="user-profile.html" class="footer-button">Your Profile</a>
+          <a href="pet-quiz.html" class="footer-button">Pet Quiz</a>
+          <a href="our-animals.html" class="footer-button">Our Animals</a>
+          <a href="contact.html" class="footer-button">Contact</a>
+          <a href="impressum.html" class="footer-button">Impressum</a>
+        </div>
+      </footer>
+
+</body>
 </html>
