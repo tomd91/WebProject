@@ -20,6 +20,7 @@ function login(event) {
         // Erfolgreiche Anmeldung
         document.getElementById('message').textContent = 'Anmeldung erfolgreich.';
         // Verlinkte Seite 
+        localStorage.setItem('user',username)
         window.location.href = '/our-animals.html';
       } else {
         // Anmeldung fehlgeschlagen
