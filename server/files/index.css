@@ -1,1 +1,122 @@
 @import url(base.css);
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Header */
+header {
+  background-color: #1A4645;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 150px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  font-family: 'Montserrat Bold', sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+.user-profile img {
+  width: 30px;
+}
+
+/* Grüner Bereich */
+.green-section {
+  background-color: #1A4645;
+  color: white;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: grid; 
+  grid-template-columns: 2fr 3fr;
+  grid-gap: 5px 100px;
+}
+
+.green-section h1 {
+  font-family: 'Montserrat Black', sans-serif;
+  font-size: 72px;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.green-section h2 {
+  font-family: 'Montserrat Medium', sans-serif;
+  font-size: 20px;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.green-section button {
+  background-color: #E48925;
+  color: white;
+  font-family: 'Montserrat Medium', sans-serif;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  border: none;
+  cursor: pointer;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.green-section img:nth-child(3) {
+  max-width: 100%;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+
+/* Weißer Bereich */
+.white-section {
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-bottom: 5%;
+  display: grid; 
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0px;
+}
+
+.white-block:nth-child(1) {
+  margin-bottom: 20px;
+  grid-column: 1 / span 1;
+}
+
+.white-block:nth-child(2) {
+  margin-bottom: 20px;
+  grid-column: 2 / span 1;
+}
+
+.white-block h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.white-block p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
