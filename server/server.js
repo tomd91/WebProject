@@ -6,6 +6,12 @@ const movieModel = require("./movie-model.js");
 
 const app = express();
 
+let users = [
+  { id: 1, username: 'admin', password: 'admin', name: 'Adminstrator' },
+  { id: 2, username: 'user2', password: 'pass2', name: 'Benutzer 2' },
+  { id: 3, username: 'user3', password: 'pass3', name: 'Benutzer 3' }
+];
+
 // Parse urlencoded bodies
 app.use(bodyParser.json());
 
@@ -159,17 +165,30 @@ app.get("/genres", function (req, res) {
   });
    
   app.post('/login', (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
+    const user = req.body;
   
     // Hier kannst du die Anmeldelogik implementieren
     // Beispiel: Überprüfung der Anmeldedaten
-    if (username === 'admin' && password === 'password') {
+    if (users.find(u => u.username === user.username)) {
       res.status(200).json({ message: 'Anmeldung erfolgreich' });
     } else {
       res.status(401).json({ message: 'Anmeldung fehlgeschlagen' });
     }
-  });  
+  });
+  
+  app.post('/users', (req, res) => {
+    const user = req.body;
+  
+    // Hier kannst du die Logik zur Überprüfung und Speicherung des Benutzers implementieren
+    // Beispiel: Überprüfung, ob der Benutzername bereits vorhanden ist
+    const existingUser = users.find(u => u.username === user.username);
+    if (existingUser) {
+      res.status(409).json({ message: 'Benutzername bereits vorhanden' });
+    } else {
+      users.push(user);
+      res.status(201).json({ message: 'Benutzer erfolgreich angelegt' });
+    }
+  });
 
 app.listen(3000);
 

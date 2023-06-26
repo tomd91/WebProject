@@ -14,7 +14,7 @@ article button {
 
 main {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 span {
