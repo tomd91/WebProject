@@ -1,7 +1,7 @@
 import { ElementBuilder, ParentChildBuilder } from "./builders.js";
 
 export function headerBuilder(element) {
-    new ElementBuilder("div")
+    new ElementBuilder("div").class("test")
     .append(new ElementBuilder("div").class("logo")
         .append(new ElementBuilder("a").href("index.html")
             .append(new ElementBuilder("img").src("images/Pawship_nobackground.png").alt("Logo"))))
@@ -12,10 +12,10 @@ export function headerBuilder(element) {
             .append(new ElementBuilder("li")
                 .append(new ElementBuilder("a").href("our-animals.html").text("Our Animals")))
             .append(new ElementBuilder("li")
-                .append(new ElementBuilder("a").href("contact.html").text("Contact"))))
+                .append(new ElementBuilder("a").href("contact.html").text("Contact")))))
     .append(new ElementBuilder("div").class("user-profile")
         .append(new ElementBuilder("a").href("user-profile.html")
-            .append((new ElementBuilder("img").src("images/icons8-user-64.png").alt("User Profile"))))))
+            .append((new ElementBuilder("img").src("images/icons8-user-64.png").alt("User Profile")))))
     .appendTo(element);
 }
 
