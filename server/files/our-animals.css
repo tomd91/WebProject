@@ -1,7 +1,6 @@
+@import url(base.css);
+
 body {
-    background-color: #FCF2E7;
-    color: #1A4645;
-    font-family: 'Montserrat', sans-serif;
     height: 100%;
     margin: 0;
     padding: 0;
