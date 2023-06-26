@@ -191,6 +191,20 @@ app.get("/genres", function (req, res) {
     }
   });
 
+  app.delete('/users/:id', (req, res) => {
+    const userId = parseInt(req.params.id);
+  
+    // Überprüfe, ob der Benutzer mit der angegebenen ID vorhanden ist
+    const userIndex = users.findIndex(user => user.id === userId);
+    if (userIndex !== -1) {
+      // Benutzer löschen
+      users.splice(userIndex, 1);
+      res.status(200).json({ message: 'Benutzer gelöscht' });
+    } else {
+      res.status(404).json({ message: 'Benutzer nicht gefunden' });
+    }
+  });
+
 app.listen(3000);
 
 console.log("Server now listening on http://localhost:3000/");
