@@ -12,7 +12,10 @@ export function headerBuilder(element) {
             .append(new ElementBuilder("li")
                 .append(new ElementBuilder("a").href("our-animals.html").text("Our Animals")))
             .append(new ElementBuilder("li")
-                .append(new ElementBuilder("a").href("contact.html").text("Contact")))))
+                .append(new ElementBuilder("a").href("contact.html").text("Contact"))))
+    .append(new ElementBuilder("div").class("user-profile")
+        .append(new ElementBuilder("a").href("user-profile.html")
+            .append((new ElementBuilder("img").src("images/icons8-user-64.png").alt("User Profile"))))))
     .appendTo(element);
 }
 
