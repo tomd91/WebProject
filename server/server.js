@@ -158,6 +158,18 @@ app.get("/genres", function (req, res) {
     }
   });
    
+  app.post('/login', (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+  
+    // Hier kannst du die Anmeldelogik implementieren
+    // Beispiel: Überprüfung der Anmeldedaten
+    if (username === 'admin' && password === 'password') {
+      res.status(200).json({ message: 'Anmeldung erfolgreich' });
+    } else {
+      res.status(401).json({ message: 'Anmeldung fehlgeschlagen' });
+    }
+  });  
 
 app.listen(3000);
 
