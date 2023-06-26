@@ -1,0 +1,24 @@
+footer {
+    background-color: #FCF2E7;
+    padding: 20px;
+  }
+  
+  /* Styling for footer-buttons */
+  .footer-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer-button {
+    font-family: 'Montserrat Thin', sans-serif;
+    color: #1A4645;
+    text-decoration: none;
+    padding: 0;
+    margin: 0 10px;
+  }
+  
+  .footer-button:hover {
+    text-decoration: underline;
+  }
+  
