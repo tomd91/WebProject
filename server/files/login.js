@@ -1,3 +1,4 @@
+
 function login(event) {
   event.preventDefault(); // Verhindert das automatische Absenden des Formulars
 
@@ -65,4 +66,7 @@ function createUser(event) {
   };
   xhr.send(JSON.stringify(newUser));
 }
+
+
+
 
