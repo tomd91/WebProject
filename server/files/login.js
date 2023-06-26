@@ -19,6 +19,7 @@ function login(event) {
       if (xhr.status === 200) {
         // Erfolgreiche Anmeldung
         document.getElementById('message').textContent = 'Anmeldung erfolgreich.';
+        window.location.href = '/search.html';
       } else {
         // Anmeldung fehlgeschlagen
         document.getElementById('message').textContent = 'Anmeldung fehlgeschlagen.';
