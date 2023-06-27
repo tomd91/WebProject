@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const http = require("http");
 const bodyParser = require("body-parser");
-const animalmodel = require("./animal-model.js");
+const animalModel = require("./animal-model.js");
+
 
 const app = express();
 
