@@ -1,10 +1,10 @@
 const quizData = [
     {
         openness: "openness",
-        question: "Are you curious about new Topics? Do you like learning new Things?",
+        question: "Are you curious about new topics? Do you like learning new things?",
         a: "I am an adventurer!",
         b: "I dont care.",
-        c: "I already know enough!",
+        c: "My omniscience makes the universe seem small!",
     },
     {
         extraversion: "extraversion",
@@ -23,9 +23,9 @@ const quizData = [
     {
         neuroticism: "neuroticism",
         question: "Is it easy for someone to upset you or are you an iron knight?",
-        a: "I will defend thy honor!",
+        a: "I am shitting my pants right now!",
         b: "I dont care.",
-        c: "I am shitting my pants right now!",
+        c: "I will defend thy honor!",
     },
     {
         agreeableness: "agreeableness",
@@ -40,10 +40,12 @@ const quizData = [
 const quiz= document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
+const quizHeader = document.getElementById('quizHeader')
 const a_text = document.getElementById('a_text')
 const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
 const submitBtn = document.getElementById('submit')
+
 
 let openness = 0
 let extraversion = 0
@@ -135,10 +137,12 @@ submitBtn.addEventListener('click', () => {
            score = 0;
         } else {
             personality = determinePersonality(openness, extraversion, conscientiousness, neuroticism, agreeableness);
-            quiz.innerHTML = `
-            <h2>Your personality test revealed that you have a personality high in ${personality}!</h2>
-            <button onclick="location.reload()">Reload</button>
+            
+            quizHeader.innerHTML = `
+            <h2>Your personality test revealed that you have a personality high in ${personality} :)</h2>
             `
+            submitBtn.setAttribute("onclick", "location.href = 'http://127.0.0.1:5501/server/files/result.html'")
+            submitBtn.innerText = "See Result"
         }
     }
 })
