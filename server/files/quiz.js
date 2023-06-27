@@ -183,7 +183,7 @@ submitBtn.addEventListener('click', () => {
 
             questionEl.innerHTML = `
             You score high in ${personality}!<br>
-            Watch our animal section for a pet with your personality style :)<br>
+            Check our animal section for a pet with your personality style. :)<br>
             `
                        
 
