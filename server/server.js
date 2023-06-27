@@ -84,6 +84,10 @@ app.use(express.static(path.join(__dirname, "files")));
     }
   });  
 
+  app.get('/users/:username/name', (req, res) => {
+    res.json(animals)
+  });  
+
 app.listen(3000);
 
 console.log("Server now listening on http://localhost:3000/");
