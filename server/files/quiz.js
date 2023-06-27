@@ -45,6 +45,7 @@ const a_text = document.getElementById('a_text')
 const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
 const submitBtn = document.getElementById('submit')
+// const imageContainer = document.getElementById('imageContainer')
 
 
 let openness = 0
@@ -100,6 +101,21 @@ function determinePersonality(openness, extraversion, conscientiousness, neuroti
   return personality;
 }
 
+function selectResultImage(personality) {
+
+    if (personality === 'openness') {
+        return;
+    } else if (personality === 'extraversion') {
+        return;
+    } else if (personality === 'conscientiousness') {
+        return;
+    } else if (personality === 'neuroticism') {
+        return;
+    } else if (personality === 'agreeableness') {
+        return "./images/Milow.jpeg";
+    }
+}
+
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
     if(answer) {
@@ -138,6 +154,11 @@ submitBtn.addEventListener('click', () => {
         } else {
             personality = determinePersonality(openness, extraversion, conscientiousness, neuroticism, agreeableness);
             
+            /* let imageElement = document.createElement("img");
+            imageElement.setAttribute("src", "./images/Milow.jpeg");
+            imageElement.setAttribute("alt", "Result Image");
+            quizHeader.appendChild(imageElement); */
+
             quizHeader.innerHTML = `
             <h2>Your personality test revealed that you have a personality high in ${personality} :)</h2>
             `
