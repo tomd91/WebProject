@@ -3,6 +3,8 @@ const path = require("path");
 const http = require("http");
 const bodyParser = require("body-parser");
 const animalmodel = require("./animal-model.js")["animals"];
+
+
 const app = express();
 
 let users = [
@@ -236,8 +238,8 @@ app.get("/genres", function (req, res) {
     }
   });  
 
-  app.get('/users/:username/name', (req, res) => {
-    res.json(animals)
+  app.get('/animals', (req, res) => {
+    res.json(animalmodel)
   });  
 
 app.listen(3000);
