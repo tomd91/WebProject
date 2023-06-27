@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="login.css" />
     <script type="module" src="login_builder.js"></script>
     <script src="user-manager.js"></script>
+    <script type="module" src="base_builder.js"></script>
 
   </head>
 
@@ -16,7 +17,7 @@
 
     <main>
       <div>
-        <h1>Ändere deine Daten</h1>
+        <h1>Change your data</h1>
         <form id="updateForm" onsubmit="updateUser(event)">
           <label for="password">New Password:</label>
           <input type="password" id="password" name="password"><br>
@@ -32,6 +33,11 @@
 
         <button onclick="deleteUser()">Delete</button>
         <p id="message"></p>
+      </div>
+
+      <div>
+        <h1>Logout</h1>
+        <button onclick="userLogout()">Logout</button>
       </div>
     </main>
 
