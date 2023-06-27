@@ -1,4 +1,4 @@
-import { headerBuilder, footerBuilder } from "./framework.js";
+import { headerBuilder, footerBuilder } from "./framwork.js";
 
 headerBuilder(document.querySelector("header"))
 footerBuilder(document.querySelector("footer"))
