@@ -204,6 +204,22 @@ app.get("/genres", function (req, res) {
     }
   });
 
+  app.put('/users/:username', (req, res) => {
+    const { username } = req.params;
+    const { password, name } = req.body;
+  
+    // Überprüfe, ob der Benutzer mit dem angegebenen Benutzernamen vorhanden ist
+    const user = users.find(user => user.username === username);
+    if (user) {
+      // Aktualisiere die Benutzerdaten
+      user.password = password !== "" ? password : user.password;
+      user.name = name !== "" ? name : user.name;
+      res.status(200).json({ message: 'Benutzerdaten aktualisiert', user });
+    } else {
+      res.status(404).json({ message: 'Benutzer nicht gefunden' });
+    }
+  });
+
 app.listen(3000);
 
 console.log("Server now listening on http://localhost:3000/");

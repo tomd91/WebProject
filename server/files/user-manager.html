@@ -15,10 +15,25 @@
     </header>
 
     <main>
-      <h1>Delet your user</h1>
+      <div>
+        <h1>Ändere deine Daten</h1>
+        <form id="updateForm" onsubmit="updateUser(event)">
+          <label for="password">New Password:</label>
+          <input type="password" id="password" name="password"><br>
+          <label for="name">New Name:</label>
+          <input type="text" id="name" name="name"><br>
+      
+          <button type="submit">Update User</button>
+        </form>
+      </div>
 
-      <button onclick="deleteUser()">Delete</button>
-      <p id="message"></p>
+      <div>
+        <h1>Delet your user</h1>
+
+        <button onclick="deleteUser()">Delete</button>
+        <p id="message"></p>
+      </div>
+    </main>
 
     <footer>
     </footer>
