@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const http = require("http");
 const bodyParser = require("body-parser");
-const animalModel = require("./animal-model.js");
+const animalmodel = require("./animal-model.js")["animals"];
 
 
 const app = express();
@@ -86,8 +86,8 @@ app.use(express.static(path.join(__dirname, "files")));
     }
   });  
 
-  app.get('/users/:username/name', (req, res) => {
-    res.json(animals)
+  app.get('/animals', (req, res) => {
+    res.json(animalmodel)
   });  
 
 app.listen(3000);
