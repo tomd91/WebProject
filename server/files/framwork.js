@@ -20,8 +20,8 @@ export function headerBuilder(element) {
 
     .append(new ElementBuilder("div").class("user-profile")
         .append(new ElementBuilder("a").href("login.html")
-            .append(new ElementBuilder("img").src("images/icons8-user-64.png").alt("User Profile"))
-            .append(new ElementBuilder("p").text(name))))
+            .append(new ElementBuilder("img").src("images/icons8-user-64.png").alt("User Profile")))
+        .append(new ElementBuilder("p").text(name)))
     .appendTo(element);
 }
 
