@@ -9,7 +9,7 @@ export function headerBuilder(element) {
     .append(new ElementBuilder("nav")
         .append(new ElementBuilder("ul")
             .append(new ElementBuilder("li")
-                .append(new ElementBuilder("a").href("pet-quiz.html").text("Pet Quiz")))
+                .append(new ElementBuilder("a").href("quiz.html").text("Pet Quiz")))
             .append(new ElementBuilder("li")
                 .append(new ElementBuilder("a").href("our-animals.html").text("Our Animals")))
             .append(new ElementBuilder("li")
@@ -25,7 +25,7 @@ export function headerBuilder(element) {
 export function footerBuilder(element) {
     new ElementBuilder("div")
     .append(new ElementBuilder("a").href("login.html").class("footer-button").text("Your Profile"))
-    .append(new ElementBuilder("a").href("pet-quiz.html").class("footer-button").text("Pet Quiz"))
+    .append(new ElementBuilder("a").href("quiz.html").class("footer-button").text("Pet Quiz"))
     .append(new ElementBuilder("a").href("our-animals.html").class("footer-button").text("Our Animals"))
     .append(new ElementBuilder("a").href("contact.html").class("footer-button").text("Contact"))
     .append(new ElementBuilder("a").href("impressum.html").class("footer-button").text("Impressum"))
