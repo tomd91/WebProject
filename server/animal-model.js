@@ -9,7 +9,7 @@ const animals = {
           "description": "Aslan is funny.",
           "image": "images/aslan.JPG",
         },
-       siegfried: {
+       sigfried: {
           "name": "Sigfried",
           "species": "Cat",
           "age": 2,
