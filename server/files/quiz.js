@@ -1,7 +1,7 @@
 const quizData = [
     {
         openness: "openness",
-        question: "Are you curious about new topics? Do you like learning new things?",
+        question: "Are you curious about new topics?",
         a: "I am an adventurer!",
         b: "I dont care.",
         c: "My omniscience makes the universe seem small!",
@@ -30,7 +30,7 @@ const quizData = [
     {
         agreeableness: "agreeableness",
         question: "Do you get along with most people well?",
-        a: "Daisies and Ponies for all!<3",
+        a: "Daisies and Ponies for all! <3",
         b: "I dont care.",
         c: "If its not cute, i'll get rude!",
     },
@@ -45,6 +45,7 @@ const a_text = document.getElementById('a_text')
 const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
 const submitBtn = document.getElementById('submit')
+// const imageContainer = document.getElementById('imageContainer')
 
 
 let openness = 0
@@ -100,6 +101,46 @@ function determinePersonality(openness, extraversion, conscientiousness, neuroti
   return personality;
 }
 
+function showResultImage(personality) {
+    let resultImageSrc = '';  
+    let result = '';
+    const resultImage = document.getElementById('resultImage');
+    /* const a_input = document.getElementById('a_text');
+    const b_input = document.getElementById('b_text');
+    const c_input = document.getElementById('c_text'); */
+    const imageDiv = document.getElementById('imageDiv');
+    const resultText = document.getElementById('resultText');
+
+    
+    
+
+    if (personality === 'openness') {
+        resultImageSrc = 'images/luna.jpeg';
+        result = "That's Luna";
+    } else if (personality === 'extraversion') {
+        resultImageSrc = 'images/aslan.JPG';
+        result = 'Say hello to Aslan';
+    } else if (personality === 'conscientiousness') {   
+        resultImageSrc = 'images/momo.jpeg';
+        result = 'Momo is already at work';
+    } else if (personality === 'neuroticism') {
+        resultImageSrc = 'images/sigfried.jpeg';
+        result = 'Sigfried wants to relax with you';
+    } else if (personality === 'agreeableness') {
+        resultImageSrc = 'images/enola.jpg';
+        result = 'On a diplomatic mission, Enola';
+    }
+
+    resultText.innerHTML = result;
+    resultText.setAttribute("style", "display: block");
+    imageDiv.setAttribute("style", "display: block");
+    /* a_input.setAttribute("style", "display: none");
+    b_input.setAttribute("style", "display: none");
+    c_input.setAttribute("style", "display: none"); */
+    resultImage.setAttribute("style", "display: inline"); 
+    resultImage.setAttribute("src", resultImageSrc);
+}
+
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
     if(answer) {
@@ -137,12 +178,17 @@ submitBtn.addEventListener('click', () => {
            score = 0;
         } else {
             personality = determinePersonality(openness, extraversion, conscientiousness, neuroticism, agreeableness);
-            
-            quizHeader.innerHTML = `
-            <h2>Your personality test revealed that you have a personality high in ${personality} :)</h2>
+
+            showResultImage(personality);
+
+            questionEl.innerHTML = `
+            You score high in ${personality}!<br>
+            Watch our animal section for a pet with your personality style :)<br>
             `
-            submitBtn.setAttribute("onclick", "location.href = 'http://127.0.0.1:5501/server/files/result.html'")
-            submitBtn.innerText = "See Result"
+                       
+
+            submitBtn.setAttribute("onclick", "location.reload()")
+            submitBtn.innerText = "Do it again!"
         }
     }
 })
