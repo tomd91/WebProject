@@ -22,6 +22,7 @@ function login(event) {
           var response1 = xhr.responseText;
           resolve(response1);
           document.getElementById('message').textContent = 'Anmeldung erfolgreich.';
+          localStorage.setItem('user', username)
         } else {
           // Anmeldung fehlgeschlagen
           reject(xhr.status);
@@ -42,7 +43,7 @@ function login(event) {
           const name = response.name;
           // Hier kannst du den Namen verwenden oder entsprechende Aktionen ausführen
           localStorage.setItem('name', name)
-          window.location.href = '/our-animals.html';
+          window.location.href = '/index.html';
 
         } else {
           console.error('Fehler beim Abrufen des Namens:', xhr.status);
