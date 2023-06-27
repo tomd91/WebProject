@@ -43,9 +43,12 @@ header {
   /* Styling for user icon */
   .user-profile {
     margin-left: auto;
+    color: white;
   }
 
   .user-profile img {
     width: 30px; 
   }
+
+
   

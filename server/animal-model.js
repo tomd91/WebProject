@@ -16,7 +16,7 @@ const animals = {
           "sex": "Male",
           "personality": "neuroticism",
           "description": "Siegfried is a whirlwind of feline energy, a mischievous ball of fur that never seems to run out of steam. With a perpetual twinkle in his eye, he embraces life with a zest that can only be described as both active and playful. From dawn till dusk, he's on a mission to explore every nook and cranny of his domain, effortlessly leaping from one surface to another, paws like a blur of lightning. But underneath his boundless enthusiasm lies a touch of craziness that adds an unpredictable charm to his character. Whether he's engaging in gravity-defying acrobatics or chasing imaginary creatures with an intensity that defies reason, Siegfried's antics never fail to leave onlookers both entertained and bewildered. He's the embodiment of a spirited feline, a captivating whirlwind of activity and eccentricity that keeps everyone on their toes.",
-          "image": "images/sigfried.jpeg",
+          "image": "images/siegfried.jpeg",
         },
         luna: {
           "name": "Luna",
@@ -91,4 +91,4 @@ const animals = {
           "image": "images/frieda_vinnie.jpg",
         },
         };
-        module.exports = animals;
+        module.exports.animals = animals;
