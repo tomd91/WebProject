@@ -78,7 +78,7 @@ const animals = {
           "age": 1,
           "sex": "Female",
           "personality": "agreeableness",
-          "description": "Enola is a playful and friendly dog.",
+          "description": "Enola, the spirited young pup, is a delightful whirlwind of mischief and adventure. With an insatiable curiosity and an appetite for exploration, she approaches life with boundless enthusiasm. Enola's mischievous nature knows no bounds, as she fearlessly embarks on expeditions to investigate every nook and cranny. However, her misadventures extend beyond mere curiosity—Enola has a penchant for consuming anything and everything in her path. From socks to shoes, and even the occasional household item, her appetite knows no limits. Despite the chaos she occasionally leaves in her wake, her playful antics and unabashed joy bring a smile to those around her. Enola's insatiable hunger for both discovery and the occasional inedible object serve as a constant reminder to her loved ones to keep a watchful eye and provide plenty of chew toys to keep her entertained. With a mischievous twinkle in her eyes and a heart full of endless energy, Enola reminds us that sometimes, it's the most rambunctious and unpredictable companions who bring the greatest joy into our lives.",
           "image": "images/enola.jpg",
         },
         frieda: {
@@ -87,7 +87,7 @@ const animals = {
           "age": 1,
           "sex": "Female",
           "personality": "",
-          "description": "Frieda & Vinnie are playful and friendly rats.",
+          "description": "Frieda and Vinnie, two inseparable sisters of the rat kingdom, share a bond that transcends the ordinary. With their sleek fur and bright, intelligent eyes, they navigate the world as a dynamic duo, united by an unbreakable sisterly love. Side by side, they explore their surroundings with unwavering curiosity, fearlessly venturing into new territories. Frieda, the adventurous spirit, fearlessly leads the way, while Vinnie, the gentle and intuitive sister, provides a calming presence and thoughtful guidance. Together, they engage in playful mischief and engage in intricate grooming rituals, their synchronized movements and rhythmic chatter displaying a profound understanding and deep connection. Through good times and challenging moments, Frieda and Vinnie are there for each other, offering comfort and companionship. Their sisterly bond serves as a powerful reminder that love and support from a cherished sibling can bring joy and strength, even in the smallest of creatures.",
           "image": "images/frieda_vinnie.jpg",
         },
         };
