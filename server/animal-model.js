@@ -91,4 +91,4 @@ const animals = {
           "image": "images/frieda_vinnie.jpg",
         },
         };
-        module.exports = animals;
+module.exports = animals;

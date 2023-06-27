@@ -6,7 +6,8 @@ function deleteUser() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           // Benutzer erfolgreich gelöscht
-          window.location.href = '/our-animals.html';
+          userLogout();
+          window.location.href = '/index.html';
         } else {
           // Fehler beim Löschen des Benutzers
           console.log('Fehler beim Löschen des Benutzers');
@@ -46,5 +47,11 @@ function deleteUser() {
     }
     };
     xhr.send(JSON.stringify(userData));
+}
+
+function userLogout() {
+    localStorage.setItem('user', '')
+    localStorage.setItem('name', '')
+    window.location.href = '/login.html'
 }
 
