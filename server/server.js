@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const http = require("http");
 const bodyParser = require("body-parser");
-const movieModel = require("./movie-model.js");
+const animalmodel = require("./animal-model.js");
 
 const app = express();
 
@@ -17,6 +17,10 @@ app.use(bodyParser.json());
 
 // Serve static content in directory 'files'
 app.use(express.static(path.join(__dirname, "files")));
+
+
+
+
 
 app.get("/movies", function (req, res) {
   let movies = Object.values(movieModel);
