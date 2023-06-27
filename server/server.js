@@ -7,9 +7,9 @@ const animalmodel = require("./animal-model.js");
 const app = express();
 
 let users = [
-  { id: 1, username: 'admin', password: 'admin', name: 'Adminstrator' },
-  { id: 2, username: 'user2', password: 'pass2', name: 'Benutzer 2' },
-  { id: 3, username: 'user3', password: 'pass3', name: 'Benutzer 3' }
+  { username: 'admin', password: 'admin', name: 'Adminstrator' },
+  { username: 'user2', password: 'pass2', name: 'Benutzer 2' },
+  { username: 'user3', password: 'pass3', name: 'Benutzer 3' }
 ];
 
 // Parse urlencoded bodies
@@ -195,11 +195,11 @@ app.get("/genres", function (req, res) {
     }
   });
 
-  app.delete('/users/:id', (req, res) => {
-    const userId = parseInt(req.params.id);
+  app.delete('/users/:user', (req, res) => {
+    const userName = req.params['user'];
   
     // Überprüfe, ob der Benutzer mit der angegebenen ID vorhanden ist
-    const userIndex = users.findIndex(user => user.id === userId);
+    const userIndex = users.findIndex(user => user.username === userName);
     if (userIndex !== -1) {
       // Benutzer löschen
       users.splice(userIndex, 1);
@@ -208,6 +208,34 @@ app.get("/genres", function (req, res) {
       res.status(404).json({ message: 'Benutzer nicht gefunden' });
     }
   });
+
+  app.put('/users/:username', (req, res) => {
+    const { username } = req.params;
+    const { password, name } = req.body;
+  
+    // Überprüfe, ob der Benutzer mit dem angegebenen Benutzernamen vorhanden ist
+    const user = users.find(user => user.username === username);
+    if (user) {
+      // Aktualisiere die Benutzerdaten
+      user.password = password !== "" ? password : user.password;
+      user.name = name !== "" ? name : user.name;
+      res.status(200).json({ message: 'Benutzerdaten aktualisiert', user });
+    } else {
+      res.status(404).json({ message: 'Benutzer nicht gefunden' });
+    }
+  });
+
+  app.get('/users/:username/name', (req, res) => {
+    const { username } = req.params;
+  
+    // Überprüfe, ob der Benutzer mit dem angegebenen Benutzernamen vorhanden ist
+    const user = users.find(user => user.username === username);
+    if (user) {
+      res.status(200).json({ name: user.name });
+    } else {
+      res.status(404).json({ message: 'Benutzer nicht gefunden' });
+    }
+  });  
 
 app.listen(3000);
 
