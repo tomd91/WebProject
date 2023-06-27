@@ -2,8 +2,7 @@ const express = require("express");
 const path = require("path");
 const http = require("http");
 const bodyParser = require("body-parser");
-const animalmodel = require("./animal-model.js");
-
+const animalmodel = require("./animal-model.js")["animals"];
 const app = express();
 
 let users = [
@@ -19,7 +18,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "files")));
 
 
-
+app.get('/animals', (req, res) => {
+  res.json(animalmodel)
+});  
 
 
 app.get("/movies", function (req, res) {
