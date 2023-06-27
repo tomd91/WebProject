@@ -6,9 +6,7 @@ const animalmodel = require("./animal-model.js")["animals"];
 const app = express();
 
 let users = [
-  { username: 'admin', password: 'admin', name: 'Adminstrator' },
-  { username: 'user2', password: 'pass2', name: 'Benutzer 2' },
-  { username: 'user3', password: 'pass3', name: 'Benutzer 3' }
+  { username: 'admin', password: 'admin', name: 'Adminstrator' }
 ];
 
 // Parse urlencoded bodies
@@ -236,6 +234,10 @@ app.get("/genres", function (req, res) {
     } else {
       res.status(404).json({ message: 'Benutzer nicht gefunden' });
     }
+  });  
+
+  app.get('/users/:username/name', (req, res) => {
+    res.json(animals)
   });  
 
 app.listen(3000);
