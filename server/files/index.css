@@ -97,7 +97,7 @@ nav ul li a {
   margin-bottom: 5%;
   display: grid; 
   grid-template-columns: 1fr 1fr;
-  grid-gap: 0px;
+  grid-gap: 10px;
 }
 
 .white-block:nth-child(1) {
