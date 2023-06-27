@@ -1,6 +1,9 @@
 import { ElementBuilder, ParentChildBuilder } from "./builders.js";
 
 export function headerBuilder(element) {
+
+    var name = localStorage.getItem('name');
+
     new ElementBuilder("div").class("test")
     .append(new ElementBuilder("div").class("logo")
         .append(new ElementBuilder("a").href("index.html")
@@ -17,7 +20,8 @@ export function headerBuilder(element) {
 
     .append(new ElementBuilder("div").class("user-profile")
         .append(new ElementBuilder("a").href("login.html")
-            .append((new ElementBuilder("img").src("images/icons8-user-64.png").alt("User Profile")))))
+            .append(new ElementBuilder("img").src("images/icons8-user-64.png").alt("User Profile"))
+            .append(new ElementBuilder("p").text(name))))
     .appendTo(element);
 }
 

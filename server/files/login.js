@@ -14,21 +14,44 @@ function login(event) {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', '/login', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        // Erfolgreiche Anmeldung
-        document.getElementById('message').textContent = 'Anmeldung erfolgreich.';
-        // Verlinkte Seite 
-        localStorage.setItem('user',username)
-        window.location.href = '/our-animals.html';
-      } else {
-        // Anmeldung fehlgeschlagen
-        document.getElementById('message').textContent = 'Anmeldung fehlgeschlagen.';
+  var promise = new Promise(function(resolve, reject) {
+  xhr.onload = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          // Erfolgreiche Anmeldung
+          var response1 = xhr.responseText;
+          resolve(response1);
+          document.getElementById('message').textContent = 'Anmeldung erfolgreich.';
+        } else {
+          // Anmeldung fehlgeschlagen
+          reject(xhr.status);
+          document.getElementById('message').textContent = 'Anmeldung fehlgeschlagen.';
+        }
       }
-    }
-  };
-  xhr.send(JSON.stringify(userData));
+    };
+    xhr.send(JSON.stringify(userData));
+  });
+  
+  promise.then(function(response) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `/users/${username}/name`);
+    xhr.onload = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          const name = response.name;
+          // Hier kannst du den Namen verwenden oder entsprechende Aktionen ausführen
+          localStorage.setItem('name', name)
+          window.location.href = '/our-animals.html';
+
+        } else {
+          console.error('Fehler beim Abrufen des Namens:', xhr.status);
+        }
+      }
+    };
+    xhr.send();
+  })
+
 }
 
 function createUser(event) {
