@@ -11,41 +11,43 @@ body{
   flex-direction: column;
 }
 .quiz-container{
-  background-color: #fff;
+  background-color: #f5d6b5;
   margin: auto;
-  margin-bottom: 150px;
   border-radius: 10px;
   box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
   width: 800px;
+  height: 400px;
   overflow: hidden;
 }
 .quiz-header{
-  padding: 4rem;
+  padding: 3rem;
+  height: 85%;
 }
 h2{
-  padding: 1rem;
+  padding: 0rem;
   text-align: center;
   margin: 0;
+  font: 2.5rem 'Open Sans', sans-serif;
 }
 ul{
   list-style-type: none;
-  padding: 0;
+  padding: 1rem;
 }
 ul li{
-  font-size: 1.2rem;
+  font: 1.5rem 'Open Sans', sans-serif;
   margin: 1rem 0;
 }
 ul li label{
   cursor: pointer;
 }
 button{
-  background-color: #03cae4;
+  background-color: #01a32ae4;
   color: #fff;
   border: none;
   display: block;
   width: 100%;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-family: inherit;
   padding: 1.3rem;
 }
@@ -55,4 +57,8 @@ button:hover{
 button:focus{
   outline: none;
   background-color: #44b927;
+}
+
+.placeholder-container{
+  height: 500px;
 }

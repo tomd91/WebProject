@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies!</title>
+    <link rel="stylesheet" href="login.css" />
+    <script type="module" src="login_builder.js"></script>
+    <script src="login.js"></script>
+
+  </head>
+
+  <body>
+    <header>
+    </header>
+
+    <main>
+      <h1>Login</h1>
+      <form id="loginForm" onsubmit="login(event)">
+        <label for="username">Benutzername:</label>
+        <input type="text" id="username" required><br>
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" required><br>
+        <button type="submit">Anmelden</button>
+      </form>
+      
+      <h1>Neuen Benutzer erstellen</h1>
+      <form id="signupForm" onsubmit="createUser(event)">
+        <label for="newUsername">Benutzername:</label>
+        <input type="text" id="newUsername" required><br>
+        <label for="newPassword">Passwort:</label>
+        <input type="password" id="newPassword" required><br>
+        <label for="newName">Name:</label>
+        <input type="text" id="newName" required><br>
+        <button type="submit">Benutzer erstellen</button>
+      </form>
+      
+      <p id="message"></p>
+
+    <footer>
+    </footer>
+  </body>
+</html>
