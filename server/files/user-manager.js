@@ -5,11 +5,9 @@ function deleteUser() {
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
-          // Benutzer erfolgreich gelöscht
           userLogout();
           window.location.href = '/index.html';
         } else {
-          // Fehler beim Löschen des Benutzers
           console.log('Fehler beim Löschen des Benutzers');
         }
       }
@@ -18,14 +16,13 @@ function deleteUser() {
   }
 
   function updateUser(event) {
-    event.preventDefault(); // Verhindert das automatische Absenden des Formulars
+    event.preventDefault();
 
     var newPassword = document.getElementById('password').value;
     var newName = document.getElementById('name').value;
 
     var username = localStorage.getItem('user');
 
-    // Erstelle ein JSON-Objekt mit den Benutzerdaten
     var userData = {
         password: newPassword,
         name: newName
@@ -39,8 +36,7 @@ function deleteUser() {
         if (xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
         console.log(response);
-        // Hier kannst du entsprechende Aktionen nach der Aktualisierung durchführen
-        showUserList(); // Aktualisierte Benutzerliste anzeigen
+        showUserList();
         } else {
         console.error('Fehler beim Aktualisieren des Benutzers:', xhr.status);
         }
