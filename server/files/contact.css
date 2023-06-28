@@ -1,5 +1,23 @@
 @import url(base.css);
 
+button{
+  background-color: #f5d6b5;
+  border: none;
+  color: rgb(9, 1, 1);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font: 1.5rem 'Open Sans', sans-serif;
+  width: 30%;
+  margin-top: 20px;
+}
+
+#dogImage{
+  max-height: 300px;
+  margin: auto;
+}
+
 .contact-section {
     display: flex;
     justify-content: center;
@@ -12,7 +30,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 20px;
   }
   
   .contact-item {

@@ -15,8 +15,8 @@ body{
   margin: auto;
   border-radius: 10px;
   box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
-  width: 800px;
-  height: 400px;
+  width: 80%;
+  height: 90%;
   overflow: hidden;
 }
 .quiz-header{
@@ -31,7 +31,7 @@ h2{
 }
 ul{
   list-style-type: none;
-  padding: 1rem;
+  padding: 2rem;
 }
 ul li{
   font: 1.5rem 'Open Sans', sans-serif;
@@ -61,4 +61,18 @@ button:focus{
 
 .placeholder-container{
   height: 500px;
+}
+
+#resultImage{
+  width: 60%;
+  height: 60%;
+  object-fit: contain;  
+}
+
+.image-container{
+  display: flex;
+  justify-content: center;
+  height: 80%;
+  padding: 1rem;
+  text-align: center;
 }
