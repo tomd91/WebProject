@@ -39,7 +39,7 @@ function deleteUser() {
         if (xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
         console.log(response);
-        // Hier kannst du entsprechende Aktionen nach der Aktualisierung durchführen
+
         showUserList(); // Aktualisierte Benutzerliste anzeigen
         } else {
         console.error('Fehler beim Aktualisieren des Benutzers:', xhr.status);
