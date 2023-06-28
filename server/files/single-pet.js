@@ -19,12 +19,14 @@ const updateSingleAnimalPage = (animal) => {
   const animalNameElement = document.getElementById('name');
   const animalAge = document.getElementById('age');
   const animalSex = document.getElementById('sex');
+  const animalPersonality = document.getElementById('personality');
   const animalDescription = document.getElementById('description');
 
   image.src = animal.image;
   animalNameElement.textContent = animal.name;
   animalAge.textContent = animal.age;
   animalSex.textContent = animal.sex;
+  animalPersonality.textContent = animal.personality;
   animalDescription.textContent = animal.description;
 };
 
