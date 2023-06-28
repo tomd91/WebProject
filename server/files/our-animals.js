@@ -8,7 +8,7 @@ fetch('/animals')
       const ageFilter = document.getElementById('age').value;
       const sexFilter = document.getElementById('sex').value;
 
-      imageGrid.innerHTML = ''; // Reset image grid
+      imageGrid.innerHTML = ''; 
 
       const filteredAnimals = Object.values(data).filter(animal => {
         if (speciesFilter !== 'all' && animal.species !== speciesFilter) {
@@ -33,7 +33,6 @@ fetch('/animals')
         return true;
       });
 
-      // View of filtered animals
       filteredAnimals.forEach(animal => {
         const link = document.createElement('a');
         link.href = `single-pet.html?animalName=${encodeURIComponent(animal.name)}`;
@@ -46,7 +45,6 @@ fetch('/animals')
       });
     }
 
-    // Event listener for filter changes
     const speciesFilter = document.getElementById('species');
     const ageFilter = document.getElementById('age');
     const sexFilter = document.getElementById('sex');
@@ -55,7 +53,6 @@ fetch('/animals')
     ageFilter.addEventListener('change', displayFilteredAnimals);
     sexFilter.addEventListener('change', displayFilteredAnimals);
 
-    // initial view
     displayFilteredAnimals();
   })
   .catch(error => {
