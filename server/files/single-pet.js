@@ -1,11 +1,6 @@
-import { headerBuilder, footerBuilder } from "./framwork.js";
-
-
-// Retrieve the animal name from the URL query parameter
 const urlParams = new URLSearchParams(window.location.search);
 const animalName = urlParams.get('animalName');
 
-// Fetch animal data based on the provided name
 const fetchAnimalData = async (name) => {
   try {
     const response = await fetch('/animals');
@@ -19,7 +14,6 @@ const fetchAnimalData = async (name) => {
   }
 };
 
-// Update the single animal page with the retrieved data
 const updateSingleAnimalPage = (animal) => {
   const image = document.getElementById('image');
   const animalNameElement = document.getElementById('name');
@@ -34,7 +28,6 @@ const updateSingleAnimalPage = (animal) => {
   animalDescription.textContent = animal.description;
 };
 
-// Fetch and update animal data on page load
 window.addEventListener('DOMContentLoaded', async () => {
   const animal = await fetchAnimalData(animalName);
   if (animal) {
