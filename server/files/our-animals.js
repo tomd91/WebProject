@@ -3,19 +3,60 @@ fetch('/animals')
   .then(data => {
     const imageGrid = document.getElementById('image-grid');
 
-    // Iterate over the animal data
-    for (const animalKey in data) {
-      if (data.hasOwnProperty(animalKey)) {
-        const animal = data[animalKey];
+    function displayFilteredAnimals() {
+      const speciesFilter = document.getElementById('species').value;
+      const ageFilter = document.getElementById('age').value;
+      const sexFilter = document.getElementById('sex').value;
 
-        // Create a new image element
+      imageGrid.innerHTML = ''; // Reset image grid
+
+      const filteredAnimals = Object.values(data).filter(animal => {
+        if (speciesFilter !== 'all' && animal.species !== speciesFilter) {
+          return false;
+        }
+
+        if (ageFilter !== 'all') {
+          const ageRange = ageFilter.split('-');
+          const minAge = parseInt(ageRange[0]);
+          const maxAge = parseInt(ageRange[1]);
+          const animalAge = parseInt(animal.age);
+
+          if (animalAge < minAge || animalAge > maxAge) {
+            return false;
+          }
+        }
+
+        if (sexFilter !== 'all' && animal.sex !== sexFilter) {
+          return false;
+        }
+
+        return true;
+      });
+
+      // View of filtered animals
+      filteredAnimals.forEach(animal => {
+        const link = document.createElement('a');
+        link.href = `single-pet.html?animalName=${encodeURIComponent(animal.name)}`;
+
         const image = document.createElement('img');
         image.src = animal.image;
 
-        // Append the image element to the image grid
-        imageGrid.appendChild(image);
-      }
+        link.appendChild(image);
+        imageGrid.appendChild(link);
+      });
     }
+
+    // Event listener for filter changes
+    const speciesFilter = document.getElementById('species');
+    const ageFilter = document.getElementById('age');
+    const sexFilter = document.getElementById('sex');
+
+    speciesFilter.addEventListener('change', displayFilteredAnimals);
+    ageFilter.addEventListener('change', displayFilteredAnimals);
+    sexFilter.addEventListener('change', displayFilteredAnimals);
+
+    // initial view
+    displayFilteredAnimals();
   })
   .catch(error => {
     console.error('Error:', error);
